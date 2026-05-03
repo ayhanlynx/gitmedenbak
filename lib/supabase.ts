@@ -1,6 +1,8 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = 'https://ykoinlcqripdyouuckkn.supabase.co'
-const supabaseKey = 'sb_publishable_Y4bfmj-TeA50kyBaG0R8Lw_cLC-uehx'
+// TypeScript bu değişkenlerin boş olma ihtimaline karşı kızmasın diye
+// sonlarına minik bir "|| ''" ekliyoruz.
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
-export const supabase = createClient(supabaseUrl, supabaseKey)
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
